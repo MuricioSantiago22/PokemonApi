@@ -1,12 +1,12 @@
 package com.example.pokemonapi.data.repository
 
 import com.example.pokemonapi.data.model.PokemonResponse
-import com.example.pokemonapi.data.network.PokemonDataSource
+import com.example.pokemonapi.data.network.PokeListDataSource
 import com.example.pokemonapi.domain.core.Result
 
-class PokemonRepository {
+class PokeListRepository {
 
-    private val pokemonDS = PokemonDataSource()
+    private val pokemonDS = PokeListDataSource()
 
     suspend fun getAllPokemon():Result<PokemonResponse>{
         return  pokemonDS.getAllPokemon()

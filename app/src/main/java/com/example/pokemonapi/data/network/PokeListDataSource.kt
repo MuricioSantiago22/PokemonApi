@@ -9,7 +9,7 @@ import kotlinx.coroutines.withContext
 import retrofit2.*
 
 
-class PokemonDataSource {
+class PokeListDataSource {
 
     private val retrofit= RetrofitHelper.getRetrofit()
 
