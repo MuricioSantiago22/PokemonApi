@@ -1,34 +1,36 @@
 package com.example.pokemonapi.ui.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pokemonapi.data.model.Pokemon
 import com.example.pokemonapi.data.model.PokemonResult
+import com.example.pokemonapi.databinding.FragmentPokeListBinding
 import com.example.pokemonapi.domain.core.BaseViewHolder
 
 class PokeListAdapter(
     private val pokemonList :List<PokemonResult>,
-    private val itemClickListener :OnProductListClickListener
+    private val itemClickListener :OnPokemonListClickListener
 ): RecyclerView.Adapter<BaseViewHolder<*>>() {
 
 
 
-    interface OnProductListClickListener {
-        fun onProductListClick(pokemonRes: PokemonResult)
+    interface OnPokemonListClickListener {
+        fun onPokemonListClick(pokemonRes: PokemonResult)
 
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<*> {
         val itemBinding =
-            ItemProductListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            FragmentPokeListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         val holder = PokeListViewHolder(itemBinding, parent.context)
 
         itemBinding.root.setOnClickListener {
             val position =
                 holder.bindingAdapterPosition.takeIf { it != DiffUtil.DiffResult.NO_POSITION }
                     ?: return@setOnClickListener
-            itemClickListener.onProductListClick(listProduct[position])
+            itemClickListener.onPokemonListClick(pokemonList[position])
         }
         return holder
     }
@@ -40,6 +42,14 @@ class PokeListAdapter(
     }
 
     override fun getItemCount(): Int = pokemonList.size
+
+    private inner class PokeListViewHolder(
+        val binding : FragmentPokeListBinding, val context : Context
+    ): BaseViewHolder<PokemonResult>(binding.root){
+        override fun bind(item: PokemonResult) {
+            val image = item.
+        }
+    }
 }
 
-private inner class PokeListViewHolder()
+
