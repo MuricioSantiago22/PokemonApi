@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".ui.pokelist.PokeListFragment">
 
+    <RelativeLayout
+        android:id="@+id/progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="visible"/>
+    </RelativeLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/pokelistRecyclerView"
         android:layout_width="0dp"

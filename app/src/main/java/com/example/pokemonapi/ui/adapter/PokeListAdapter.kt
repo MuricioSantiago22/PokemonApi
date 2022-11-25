@@ -11,7 +11,7 @@ import com.example.pokemonapi.domain.core.BaseViewHolder
 
 class PokeListAdapter(
     private val pokemonList :List<PokemonResult>,
-    private val itemClickListener :OnPokemonListClickListener
+    private val itemClickListener : OnPokemonListClickListener
 ): RecyclerView.Adapter<BaseViewHolder<*>>() {
 
 
