@@ -1,0 +1,21 @@
+package com.example.pokemonapi.data.network
+
+import com.example.pokemonapi.data.model.Pokemon
+import com.example.pokemonapi.domain.core.Result
+import com.example.pokemonapi.domain.core.RetrofitHelper
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+import retrofit2.Response
+
+class PokeInfoDataSource {
+
+
+    private val retrofit= RetrofitHelper.getRetrofit()
+
+    suspend fun getPokemonInfo(id:Int): Result<Pokemon> {
+        return withContext(Dispatchers.IO){
+            val response= retrofit.create(WebServicePokemon::class.java).getPokemonInfo(id)
+            Result.Success(response.body()?:Pokemon())
+        }
+    }
+}

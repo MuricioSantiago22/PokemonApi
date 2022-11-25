@@ -6,7 +6,7 @@ import com.example.pokemonapi.domain.core.Result
 import kotlinx.coroutines.Dispatchers
 import java.lang.Exception
 
-class PokemonViewModel(private val repo: PokeListRepository): ViewModel() {
+class PokeListViewModel(private val repo: PokeListRepository): ViewModel() {
     fun fetchPokemon() = liveData(Dispatchers.IO){
         emit(Result.Loading())
         kotlin.runCatching {

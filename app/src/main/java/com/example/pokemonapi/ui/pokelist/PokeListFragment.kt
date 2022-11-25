@@ -14,7 +14,7 @@ import com.example.pokemonapi.data.repository.PokeListRepository
 import com.example.pokemonapi.databinding.FragmentPokeListBinding
 import com.example.pokemonapi.domain.core.Result
 import com.example.pokemonapi.ui.adapter.PokeListAdapter
-import com.example.pokemonapi.ui.viewModel.PokemonViewModel
+import com.example.pokemonapi.ui.viewModel.PokeListViewModel
 import com.example.pokemonapi.ui.viewModel.PokemonViewModelFactory
 
 class PokeListFragment : Fragment(R.layout.fragment_poke_list),
@@ -23,7 +23,7 @@ class PokeListFragment : Fragment(R.layout.fragment_poke_list),
     private lateinit var binding: FragmentPokeListBinding
     private lateinit var adapter: PokeListAdapter
 
-    private val viewModel by viewModels<PokemonViewModel> {
+    private val viewModel by viewModels<PokeListViewModel> {
         PokemonViewModelFactory(
             PokeListRepository(
 
@@ -63,8 +63,10 @@ class PokeListFragment : Fragment(R.layout.fragment_poke_list),
         }
     }
 
-    override fun onProductListClick(pokemon: PokemonResult) {
-        findNavController()
+    override fun onPokemonListClick(pokemonResult: PokemonResult) {
+
+        val action = PokeListFragmentDirections.actionPokeListFragmentToPokeInfoFragment()
+        findNavController().navigate(action)
     }
 
 

@@ -15,7 +15,7 @@ class PokeListDataSource {
 
     suspend fun getAllPokemon():Result<PokemonResponse>{
         return withContext(Dispatchers.IO){
-            val response = retrofit.create(WebServicePokemon::class.java).getPokemonList(100, 0)
+            val response = retrofit.create(WebServicePokemon::class.java).getPokemonList(450, 0)
             Result.Success(response.body()?:PokemonResponse())
         }
     }

@@ -10,16 +10,16 @@ import com.example.pokemonapi.databinding.CardPokemonSearchBinding
 import com.example.pokemonapi.domain.core.BaseViewHolder
 
 class PokeListAdapter(
-    private val pokemonList :List<PokemonResult>,
-    private val itemClickListener : OnPokemonListClickListener
-): RecyclerView.Adapter<BaseViewHolder<*>>() {
-
+    private val pokemonList: List<PokemonResult>,
+    private val itemClickListener: OnPokemonListClickListener
+) : RecyclerView.Adapter<BaseViewHolder<*>>() {
 
 
     interface OnPokemonListClickListener {
-        fun onPokemonListClick(pokemonRes: PokemonResult)
+        fun onPokemonListClick(pokemonResult: PokemonResult)
 
     }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<*> {
         val itemBinding =
             CardPokemonSearchBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -35,7 +35,7 @@ class PokeListAdapter(
     }
 
     override fun onBindViewHolder(holder: BaseViewHolder<*>, position: Int) {
-        when(holder){
+        when (holder) {
             is PokeListViewHolder -> holder.bind(pokemonList[position])
         }
     }
@@ -44,10 +44,10 @@ class PokeListAdapter(
 
     private inner class PokeListViewHolder(
         val binding: CardPokemonSearchBinding, val context: Context
-    ): BaseViewHolder<PokemonResult>(binding.root){
+    ) : BaseViewHolder<PokemonResult>(binding.root) {
         override fun bind(item: PokemonResult) {
             val pokemon = pokemonList[position]
-            binding.pokemonText.text= "#${position + 1} - ${pokemon.name}"
+            binding.pokemonText.text = "#${position + 1} - ${pokemon.name}"
 
         }
     }

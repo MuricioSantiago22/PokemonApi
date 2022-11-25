@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/main_graph">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/pokeListFragment">
 
+    <fragment
+        android:id="@+id/pokeInfoFragment"
+        android:name="com.example.pokemonapi.ui.pokeinfo.PokeInfoFragment"
+        android:label="fragment_poke_info"
+        tools:layout="@layout/fragment_poke_info" />
+    <fragment
+        android:id="@+id/pokeListFragment"
+        android:name="com.example.pokemonapi.ui.pokelist.PokeListFragment"
+        android:label="fragment_poke_list"
+        tools:layout="@layout/fragment_poke_list" >
+        <action
+            android:id="@+id/action_pokeListFragment_to_pokeInfoFragment"
+            app:destination="@id/pokeInfoFragment" />
+    </fragment>
 </navigation>
