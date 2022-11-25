@@ -5,9 +5,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.pokemonapi.data.model.Pokemon
 import com.example.pokemonapi.data.model.PokemonResult
-import com.example.pokemonapi.databinding.FragmentPokeListBinding
+import com.example.pokemonapi.databinding.CardPokemonSearchBinding
 import com.example.pokemonapi.domain.core.BaseViewHolder
 
 class PokeListAdapter(
@@ -23,7 +22,7 @@ class PokeListAdapter(
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<*> {
         val itemBinding =
-            FragmentPokeListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            CardPokemonSearchBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         val holder = PokeListViewHolder(itemBinding, parent.context)
 
         itemBinding.root.setOnClickListener {
@@ -44,10 +43,12 @@ class PokeListAdapter(
     override fun getItemCount(): Int = pokemonList.size
 
     private inner class PokeListViewHolder(
-        val binding : FragmentPokeListBinding, val context : Context
+        val binding: CardPokemonSearchBinding, val context: Context
     ): BaseViewHolder<PokemonResult>(binding.root){
         override fun bind(item: PokemonResult) {
-            val image = item.
+            val pokemon = pokemonList[position]
+            binding.pokemonText.text= "#${position + 1} - ${pokemon.name}"
+
         }
     }
 }
