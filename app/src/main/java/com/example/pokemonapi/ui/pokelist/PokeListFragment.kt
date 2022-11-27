@@ -14,8 +14,9 @@ import com.example.pokemonapi.data.repository.PokeListRepository
 import com.example.pokemonapi.databinding.FragmentPokeListBinding
 import com.example.pokemonapi.domain.core.Result
 import com.example.pokemonapi.ui.adapter.PokeListAdapter
+import com.example.pokemonapi.ui.viewModel.PokeInfoViewModel
 import com.example.pokemonapi.ui.viewModel.PokeListViewModel
-import com.example.pokemonapi.ui.viewModel.PokemonViewModelFactory
+import com.example.pokemonapi.ui.viewModel.PokeListViewModelFactory
 
 class PokeListFragment : Fragment(R.layout.fragment_poke_list),
     PokeListAdapter.OnPokemonListClickListener {
@@ -24,7 +25,7 @@ class PokeListFragment : Fragment(R.layout.fragment_poke_list),
     private lateinit var adapter: PokeListAdapter
 
     private val viewModel by viewModels<PokeListViewModel> {
-        PokemonViewModelFactory(
+        PokeListViewModelFactory(
             PokeListRepository(
 
             )

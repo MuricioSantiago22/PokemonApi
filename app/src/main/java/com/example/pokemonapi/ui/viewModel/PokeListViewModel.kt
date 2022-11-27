@@ -20,7 +20,7 @@ class PokeListViewModel(private val repo: PokeListRepository): ViewModel() {
 }
 
 
-class PokemonViewModelFactory(private val repo:PokeListRepository ) :ViewModelProvider.Factory {
+class PokeListViewModelFactory(private val repo:PokeListRepository ) :ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return modelClass.getConstructor(PokeListRepository::class.java).newInstance(repo)
     }

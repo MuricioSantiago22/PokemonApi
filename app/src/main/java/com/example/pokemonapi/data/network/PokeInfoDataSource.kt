@@ -12,10 +12,11 @@ class PokeInfoDataSource {
 
     private val retrofit= RetrofitHelper.getRetrofit()
 
-    suspend fun getPokemonInfo(id:Int): Result<Pokemon> {
+     suspend fun getAllPokemonInfo(id: Int): Result<Pokemon> {
         return withContext(Dispatchers.IO){
             val response= retrofit.create(WebServicePokemon::class.java).getPokemonInfo(id)
-            Result.Success(response.body()?:Pokemon())
+            Result.Success(response.body()?: Pokemon())
         }
     }
+
 }
