@@ -5,6 +5,9 @@ import com.example.pokemonapi.domain.core.Result
 import com.example.pokemonapi.domain.core.RetrofitHelper
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
+import okhttp3.logging.LoggingEventListener
 import retrofit2.Response
 
 class PokeInfoDataSource {
