@@ -69,7 +69,7 @@ class PokeListFragment : Fragment(R.layout.fragment_poke_list),
 
         val action = PokeListFragmentDirections.actionPokeListFragmentToPokeInfoFragment()
         val bundle = Bundle().apply {
-            //putInt("pokemonId", pokemonResult.)
+
         }
 
 
