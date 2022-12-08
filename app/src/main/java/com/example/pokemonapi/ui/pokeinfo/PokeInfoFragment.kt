@@ -17,6 +17,7 @@ import com.example.pokemonapi.ui.viewModel.PokeInfoViewModel
 import com.example.pokemonapi.ui.viewModel.PokeInfoViewModelFactory
 import com.example.pokemonapi.ui.viewModel.PokeListViewModel
 import com.example.pokemonapi.ui.viewModel.PokeListViewModelFactory
+import okhttp3.internal.wait
 
 
 class PokeInfoFragment : Fragment(R.layout.fragment_poke_info) {
@@ -38,12 +39,11 @@ class PokeInfoFragment : Fragment(R.layout.fragment_poke_info) {
     private fun initUI(){
 
 
-        
-        viewModel.showPokemon(id)
-        viewModel.showPokemon(id).observe(viewLifecycleOwner, Observer { showPokemon ->
-            when(showPokemon){
+        viewModel.showPokemon(0).observe(viewLifecycleOwner, Observer { pokemon ->
+            when(pokemon){
                 is Result.Loading ->{
                     binding.pB.visibility = View.VISIBLE
+
                 }
                 is Result.Success ->{
                     binding.pB.visibility = View.GONE

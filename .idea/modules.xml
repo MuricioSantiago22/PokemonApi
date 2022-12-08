@@ -4,6 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/PokemonApi.iml" filepath="$PROJECT_DIR$/.idea/modules/PokemonApi.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/PokemonApi.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/PokemonApi.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/PokemonApi.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/PokemonApi.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/PokemonApi.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/PokemonApi.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/PokemonApi.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/PokemonApi.app.unitTest.iml" />
     </modules>
   </component>
 </project>

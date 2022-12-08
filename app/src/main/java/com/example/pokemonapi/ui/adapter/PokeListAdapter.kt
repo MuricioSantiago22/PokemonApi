@@ -5,18 +5,19 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.example.pokemonapi.data.model.Pokemon
 import com.example.pokemonapi.data.model.PokemonResult
 import com.example.pokemonapi.databinding.CardPokemonSearchBinding
 import com.example.pokemonapi.domain.core.BaseViewHolder
 
 class PokeListAdapter(
-    private val pokemonList: List<PokemonResult>,
+    private val pokemonList: List<Pokemon>,
     private val itemClickListener: OnPokemonListClickListener
 ) : RecyclerView.Adapter<BaseViewHolder<*>>() {
 
 
     interface OnPokemonListClickListener {
-        fun onPokemonListClick(pokemonResult: PokemonResult)
+        fun onPokemonListClick(pokemonResult: Pokemon)
 
     }
 
@@ -44,10 +45,9 @@ class PokeListAdapter(
 
     private inner class PokeListViewHolder(
         val binding: CardPokemonSearchBinding, val context: Context
-    ) : BaseViewHolder<PokemonResult>(binding.root) {
-        override fun bind(item: PokemonResult) {
-            val pokemon = pokemonList[position]
-            binding.pokemonText.text = "#${position + 1} - ${pokemon.name}"
+    ) : BaseViewHolder<Pokemon>(binding.root) {
+        override fun bind(item: Pokemon) {
+            binding.pokemonText.text = "#${item.id} - ${item.name}"
 
         }
     }

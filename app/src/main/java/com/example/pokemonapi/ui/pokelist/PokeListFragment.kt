@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.pokemonapi.R
+import com.example.pokemonapi.data.model.Pokemon
 import com.example.pokemonapi.data.model.PokemonResult
 import com.example.pokemonapi.data.repository.PokeListRepository
 import com.example.pokemonapi.databinding.FragmentPokeListBinding
@@ -44,7 +45,7 @@ class PokeListFragment : Fragment(R.layout.fragment_poke_list),
                 }
                 is Result.Success -> {
                     binding.progressBar.visibility = View.GONE
-                    val pokemons = result.data.results
+                    val pokemons = result.data
                     Log.d("LiveData", "${result.data}")
                     initRecyclerView(pokemons)
                 }
@@ -56,7 +57,7 @@ class PokeListFragment : Fragment(R.layout.fragment_poke_list),
         })
     }
 
-    private fun initRecyclerView(list: List<PokemonResult>?) {
+    private fun initRecyclerView(list: List<Pokemon>?) {
         list?.let { _list ->
             adapter = PokeListAdapter(pokemonList = _list, itemClickListener = this)
             binding.pokelistRecyclerView.layoutManager = LinearLayoutManager(context)
@@ -64,9 +65,14 @@ class PokeListFragment : Fragment(R.layout.fragment_poke_list),
         }
     }
 
-    override fun onPokemonListClick(pokemonResult: PokemonResult) {
+    override fun onPokemonListClick(pokemonResult: Pokemon) {
 
         val action = PokeListFragmentDirections.actionPokeListFragmentToPokeInfoFragment()
+        val bundle = Bundle().apply {
+            //putInt("pokemonId", pokemonResult.)
+        }
+
+
         findNavController().navigate(action)
     }
 
