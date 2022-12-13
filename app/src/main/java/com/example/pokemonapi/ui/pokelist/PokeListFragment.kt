@@ -65,12 +65,16 @@ class PokeListFragment : Fragment(R.layout.fragment_poke_list),
         }
     }
 
-    override fun onPokemonListClick(pokemonResult: Pokemon) {
+    override fun onPokemonListClick(pokemon: Pokemon) {
 
-        val action = PokeListFragmentDirections.actionPokeListFragmentToPokeInfoFragment()
-        val bundle = Bundle().apply {
+        val action = PokeListFragmentDirections.actionPokeListFragmentToPokeInfoFragment(
 
-        }
+            pokemon.name.toString(),
+            pokemon.height.toString(),
+            pokemon.weight.toString(),
+            pokemon.sprites.toString()
+        )
+        //val bundle = Bundle().apply {}
 
 
         findNavController().navigate(action)

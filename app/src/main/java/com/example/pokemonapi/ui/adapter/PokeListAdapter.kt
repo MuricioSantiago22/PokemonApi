@@ -3,8 +3,10 @@ package com.example.pokemonapi.ui.adapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.pokemonapi.data.model.Pokemon
 import com.example.pokemonapi.data.model.PokemonResult
 import com.example.pokemonapi.databinding.CardPokemonSearchBinding
@@ -17,7 +19,7 @@ class PokeListAdapter(
 
 
     interface OnPokemonListClickListener {
-        fun onPokemonListClick(pokemonResult: Pokemon)
+        fun onPokemonListClick(pokemon: Pokemon)
 
     }
 
@@ -47,6 +49,8 @@ class PokeListAdapter(
         val binding: CardPokemonSearchBinding, val context: Context
     ) : BaseViewHolder<Pokemon>(binding.root) {
         override fun bind(item: Pokemon) {
+            val imageUrl = item.sprites
+            Glide.with(context).load(imageUrl).centerCrop().into(binding.itemImage)
             binding.pokemonText.text = "#${item.id} - ${item.name}"
 
         }
