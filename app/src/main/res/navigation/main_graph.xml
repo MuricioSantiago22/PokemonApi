@@ -11,17 +11,9 @@
         android:label="fragment_poke_info"
         tools:layout="@layout/fragment_poke_info" >
         <argument
-            android:name="name"
-            app:argType="string" />
-        <argument
-            android:name="weight"
-            app:argType="string" />
-        <argument
-            android:name="height"
-            app:argType="string" />
-        <argument
-            android:name="sprites"
-            app:argType="string" />
+            app:argType="string"
+            android:name="id" />
+
     </fragment>
     <fragment
         android:id="@+id/pokeListFragment"

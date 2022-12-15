@@ -9,7 +9,7 @@ class PokeInfoRepository {
 
     private val pokemonInfDS = PokeInfoDataSource()
 
-    suspend fun getAllPokemonInfo(id:Int): Result<Pokemon> {
-        return pokemonInfDS.getAllPokemonInfo(id)
+    suspend fun getAllPokemonInfo(): Result<Pokemon> {
+        return pokemonInfDS.getAllPokemonInfo()
     }
 }

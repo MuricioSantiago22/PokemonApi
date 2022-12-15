@@ -49,7 +49,7 @@ class PokeListAdapter(
         val binding: CardPokemonSearchBinding, val context: Context
     ) : BaseViewHolder<Pokemon>(binding.root) {
         override fun bind(item: Pokemon) {
-            val imageUrl = item.sprites
+            val imageUrl = item.sprites?.frontDefault
             Glide.with(context).load(imageUrl).centerCrop().into(binding.itemImage)
             binding.pokemonText.text = "#${item.id} - ${item.name}"
 

@@ -13,7 +13,7 @@ class PokeInfoViewModel(private val repo: PokeInfoRepository):ViewModel() {
     fun showPokemon(id:Int) = liveData(Dispatchers.IO){
         emit(Result.Loading())
         kotlin.runCatching {
-            repo.getAllPokemonInfo(id)
+            repo.getAllPokemonInfo()
         }.onSuccess { pokemon->
             emit(pokemon)
         }.onFailure { throwable ->

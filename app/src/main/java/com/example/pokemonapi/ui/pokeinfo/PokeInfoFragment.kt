@@ -41,7 +41,7 @@ class PokeInfoFragment : Fragment(R.layout.fragment_poke_info) {
     private fun initUI(){
 
 
-        viewModel.showPokemon(0).observe(viewLifecycleOwner, Observer { pokemon ->
+        viewModel.showPokemon(1).observe(viewLifecycleOwner, Observer { pokemon ->
             when(pokemon){
                 is Result.Loading ->{
                     binding.pB.visibility = View.VISIBLE
@@ -49,10 +49,9 @@ class PokeInfoFragment : Fragment(R.layout.fragment_poke_info) {
                 }
                 is Result.Success ->{
                     binding.pB.visibility = View.GONE
-                    Glide.with(requireContext()).load("${args.sprites}").centerCrop().into(binding.imageView)
-                    binding.nameTextView.text=args.name
-                    binding.heightText.text=args.height
-                    binding.weightText.text=args.weight
+                    
+
+
 
 
                 }

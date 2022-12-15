@@ -15,9 +15,9 @@ class PokeInfoDataSource {
 
     private val retrofit= RetrofitHelper.getRetrofit()
 
-     suspend fun getAllPokemonInfo(id: Int): Result<Pokemon> {
+     suspend fun getAllPokemonInfo(): Result<Pokemon> {
         return withContext(Dispatchers.IO){
-            val response= retrofit.create(WebServicePokemon::class.java).getPokemonInfo(id)
+            val response= retrofit.create(WebServicePokemon::class.java).getPokemonInfo(1)
             Result.Success(response.body()?: Pokemon())
         }
     }

@@ -68,11 +68,7 @@ class PokeListFragment : Fragment(R.layout.fragment_poke_list),
     override fun onPokemonListClick(pokemon: Pokemon) {
 
         val action = PokeListFragmentDirections.actionPokeListFragmentToPokeInfoFragment(
-
-            pokemon.name.toString(),
-            pokemon.height.toString(),
-            pokemon.weight.toString(),
-            pokemon.sprites.toString()
+            pokemon.id.toString()
         )
         //val bundle = Bundle().apply {}
 
