@@ -67,13 +67,12 @@ class PokeListFragment : Fragment(R.layout.fragment_poke_list),
 
     override fun onPokemonListClick(pokemon: Pokemon) {
 
-        val action = PokeListFragmentDirections.actionPokeListFragmentToPokeInfoFragment(
-            pokemon.id.toString()
-        )
-        //val bundle = Bundle().apply {}
-
-
-        findNavController().navigate(action)
+        val action = pokemon.id?.let {
+            PokeListFragmentDirections.actionPokeListFragmentToPokeInfoFragment(
+                it
+            )
+        }
+        action?.let { findNavController().navigate(it) }
     }
 
 

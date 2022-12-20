@@ -41,15 +41,17 @@ class PokeInfoFragment : Fragment(R.layout.fragment_poke_info) {
     private fun initUI(){
 
 
-        viewModel.showPokemon(1).observe(viewLifecycleOwner, Observer { pokemon ->
+        viewModel.showPokemon(args.id).observe(viewLifecycleOwner, Observer { pokemon ->
             when(pokemon){
                 is Result.Loading ->{
                     binding.pB.visibility = View.VISIBLE
 
+
                 }
                 is Result.Success ->{
                     binding.pB.visibility = View.GONE
-                    
+                    binding.nameTextView.text = pokemon.data.name
+
 
 
 

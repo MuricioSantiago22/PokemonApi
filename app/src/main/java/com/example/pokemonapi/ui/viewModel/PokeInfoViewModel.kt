@@ -10,10 +10,10 @@ import kotlinx.coroutines.Dispatchers
 import java.lang.Exception
 
 class PokeInfoViewModel(private val repo: PokeInfoRepository):ViewModel() {
-    fun showPokemon(id:Int) = liveData(Dispatchers.IO){
+    fun showPokemon(id: Int) = liveData(Dispatchers.IO){
         emit(Result.Loading())
         kotlin.runCatching {
-            repo.getAllPokemonInfo()
+            repo.getAllPokemonInfo(id)
         }.onSuccess { pokemon->
             emit(pokemon)
         }.onFailure { throwable ->
