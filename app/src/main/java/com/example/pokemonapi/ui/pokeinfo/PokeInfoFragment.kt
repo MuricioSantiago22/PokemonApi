@@ -51,6 +51,8 @@ class PokeInfoFragment : Fragment(R.layout.fragment_poke_info) {
                 is Result.Success ->{
                     binding.pB.visibility = View.GONE
                     binding.nameTextView.text = pokemon.data.name
+                    binding.heightText.text = pokemon.data.height.toString()
+                    binding.weightText.text = pokemon.data.weight.toString()
 
 
 
