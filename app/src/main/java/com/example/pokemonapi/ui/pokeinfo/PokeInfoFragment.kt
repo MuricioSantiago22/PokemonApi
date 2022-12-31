@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 
 import android.view.View
+import android.widget.ImageView
 
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -53,6 +54,7 @@ class PokeInfoFragment : Fragment(R.layout.fragment_poke_info) {
                     binding.nameTextView.text = pokemon.data.name
                     binding.heightText.text = pokemon.data.height.toString()
                     binding.weightText.text = pokemon.data.weight.toString()
+                    Glide.with(this).load(pokemon.data.sprites?.frontDefault).into(binding.imageView)
 
 
 

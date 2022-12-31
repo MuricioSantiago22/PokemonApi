@@ -50,7 +50,7 @@ class PokeListAdapter(
     ) : BaseViewHolder<Pokemon>(binding.root) {
         override fun bind(item: Pokemon) {
             val imageUrl = item.sprites?.frontDefault
-            Glide.with(context).load(imageUrl).centerCrop().into(binding.itemImage)
+            Glide.with(context).load(imageUrl).into(binding.itemImage)
             binding.pokemonText.text = "#${item.id} - ${item.name}"
 
         }
